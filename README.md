@@ -12,13 +12,13 @@ depends on the characteristic lengthscales involved in the problem. When the len
 An example of such a stiff system is given by the ODE system
 
 $$
-{d\over dx }\begin{pmatrix} y_1\\ y_2\end{pmatrix}=\begin{pmatrix} -1000y_1\\ 1000y_1-y_2\end{pmatrix}\tag{2}
+{d\over dx} \begin{pmatrix} y_1\\ y_2 \end{pmatrix} = \begin{pmatrix} -1000y_1\\1000y_1-y_2 \end{pmatrix} \tag{2}
 $$
 
 for which the solution is
 
 $$
-\begin{pmatrix} y_1\\y_2\end{pmatrix}}={\begin{pmatrix} e^{-1000x}\\{1000\over999}(e^{-x}-e^{-1000x})\end{pmatrix}\tag{3}
+\begin{pmatrix} y_1\\y_2 \end{pmatrix}}={\begin{pmatrix} e^{-1000x}\\{1000\over999}(e^{-x}-e^{-1000x})\end{pmatrix}\tag{3}
 $$
 
 As shown by **figure 1**, initially y2 jumps very rapidly from 0 to 1 before decaying very slowly. When such a stiff ODE is solved using a standard explicit algorithm it is often found that a very small step-length must be take in order to ensure stability of the result. In other words if too large step length is taken the result of the numerical method, based on the explicit algorithm, does not even come close to approximating the solution (because it is unstable). However the very small step length required by the explicit solver is a waste of computational time and so an implicit solver, which does not have these stability issues, is more appropriate.
