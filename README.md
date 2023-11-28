@@ -32,19 +32,19 @@ $$
 The example above in equation (2), is of the form
 
 $$
-A={\begin{pmatrix} -a_1&0\\a_1&-a_2\end{pmatrix}} {\qquad} b=0 \tag{5}
+A={\begin{pmatrix} -a_1&0\\ a_1&-a_2\end{pmatrix}} {\qquad} b=0 \tag{5}
 $$
 
 With the initial data
 
 $$
-y_0={\begin{pmatrix}1\\0\end{pmatrix}}\tag{6}
+y_0={\begin{pmatrix}1\\ 0\end{pmatrix}}\tag{6}
 $$
 
 equation(5) has the solution
 
 $$
-{\begin{pmatrix} y_1\\y_2\end{pmatrix}}={\begin{pmatrix} e^{-a_1x}\\{a_1\over a_1-a_2}(e^{-a_2x}-e^{-a_1x})\end{pmatrix}}\tag{7}
+{\begin{pmatrix} y_1\\ y_2\end{pmatrix}}={\begin{pmatrix} e^{-a_1x}\\ {a_1\over a_1-a_2}(e^{-a_2x}-e^{-a_1x})\end{pmatrix}}\tag{7}
 $$
 
 Stiff behaviour, characterised by an initial rapid transient followed by a slow decay, occurs for parameter values satisfying $a_1>>a_2>0$.
