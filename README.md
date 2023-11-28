@@ -12,7 +12,7 @@ depends on the characteristic lengthscales involved in the problem. When the len
 An example of such a stiff system is given by the ODE system
 
 $$
-{d\over dx }{\begin{pmatrix} y_1\\y_2\end{pmatrix}}={\begin{pmatrix} -1000y_1\\1000y_1-y_2\end{pmatrix}}\tag{2}
+{d\over dx }{\begin{pmatrix} y_1\\ y_2\end{pmatrix}}={\begin{pmatrix} -1000y_1\\ 1000y_1-y_2\end{pmatrix}}\tag{2}
 $$
 
 for which the solution is
