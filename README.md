@@ -12,13 +12,36 @@ depends on the characteristic lengthscales involved in the problem. When the len
 An example of such a stiff system is given by the ODE system
 
 $$
-{d\over dx} \begin{pmatrix} y_1\\ y_2 \end{pmatrix} = \begin{pmatrix} -1000y_1\\1000y_1-y_2 \end{pmatrix} \tag{2}
+{d\over dx}
+\begin{pmatrix} 
+y_1 \\ 
+y_2 
+\end{pmatrix} = 
+\begin{pmatrix} 
+-1000y_1\\
+1000y_1-y_2 
+\end{pmatrix} 
 $$
+
+$$
+y(0)=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}
+\tag{2}$$
 
 for which the solution is
 
 $$
-\begin{pmatrix} y_1 \\ y_2 \end{pmatrix}=\begin{pmatrix} e^{-1000x} \\ {1000\over999}(e^{-x}-e^{-1000x})\end{pmatrix}\tag{3}
+\begin{pmatrix} 
+y_1 \\
+y_2 
+\end{pmatrix}=
+\begin{pmatrix} 
+e^{-1000x} \\ 
+{1000\over999}(e^{-x}-e^{-1000x})
+\end{pmatrix}\tag{3}
 $$
 
 As shown by **figure 1**, initially y2 jumps very rapidly from 0 to 1 before decaying very slowly. When such a stiff ODE is solved using a standard explicit algorithm it is often found that a very small step-length must be take in order to ensure stability of the result. In other words if too large step length is taken the result of the numerical method, based on the explicit algorithm, does not even come close to approximating the solution (because it is unstable). However the very small step length required by the explicit solver is a waste of computational time and so an implicit solver, which does not have these stability issues, is more appropriate.
@@ -32,19 +55,33 @@ $$
 The example above in equation (2), is of the form
 
 $$
-A={\begin{pmatrix} -a_1&0\\ a_1&-a_2\end{pmatrix}} {\qquad} b=0 \tag{5}
+A=
+{\begin{pmatrix} 
+-a_1&0\\ 
+a_1&-a_2
+\end{pmatrix}} {\qquad} b=0 \tag{5}
 $$
 
 With the initial data
 
 $$
-y_0={\begin{pmatrix}1\\ 0\end{pmatrix}}\tag{6}
+y_0={\begin{pmatrix}
+1\\ 
+0
+\end{pmatrix}}\tag{6}
 $$
 
 equation(5) has the solution
 
 $$
-{\begin{pmatrix} y_1\\ y_2\end{pmatrix}}={\begin{pmatrix} e^{-a_1x}\\ {a_1\over a_1-a_2}(e^{-a_2x}-e^{-a_1x})\end{pmatrix}}\tag{7}
+{\begin{pmatrix} 
+y_1\\ 
+y_2
+\end{pmatrix}}=
+{\begin{pmatrix} 
+e^{-a_1x}\\ 
+{a_1\over a_1-a_2}(e^{-a_2x}-e^{-a_1x})
+\end{pmatrix}}\tag{7}
 $$
 
 Stiff behaviour, characterised by an initial rapid transient followed by a slow decay, occurs for parameter values satisfying $a_1>>a_2>0$.
@@ -109,19 +146,38 @@ The same example as Figure 1.
 ### 3.2 Example 2 Stiff
 
 $$
-A={\begin{pmatrix} -1&0&0\\-99&-100&0\\-10098&9900&-10000\end{pmatrix}}  \tag{11}
+A={
+\begin{pmatrix}
+-1&0&0\\
+-99&-100&0\\
+-10098&9900&-10000
+\end{pmatrix}}  \tag{11}
 $$
 
 $$
-b={\begin{pmatrix} cos(10x)-10sin(10x)\\199cos(10x)-10sin(10x)\\208cos(10x)+10000sin(10x)\end{pmatrix}}\tag{12}
+b={\begin{pmatrix}
+cos(10x)-10sin(10x)\\
+199cos(10x)-10sin(10x)\\
+208cos(10x)+10000sin(10x)
+\end{pmatrix}}\tag{12}
 $$
 
 $$
-y_0={\begin{pmatrix} 0\\1\\0\end{pmatrix}}\tag{13}
+y_0={
+\begin{pmatrix} 
+0\\
+1\\
+0
+\end{pmatrix}}\tag{13}
 $$
 
 solution
 
 $$
-y={\begin{pmatrix} cos(10x)-e^{-x}\\cos(10x)+e^{-x}-e^{-100x}\\sin(10x)+2e^{-x}-e^{-100x}e^{-10000x}\end{pmatrix}}\tag{12}
+y={
+\begin{pmatrix} 
+cos(10x)-e^{-x}\\
+cos(10x)+e^{-x}-e^{-100x}\\
+sin(10x)+2e^{-x}-e^{-100x}e^{-10000x}
+\end{pmatrix}}\tag{12}
 $$
